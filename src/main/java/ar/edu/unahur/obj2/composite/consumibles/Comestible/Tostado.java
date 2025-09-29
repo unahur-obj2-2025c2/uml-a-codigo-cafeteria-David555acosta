@@ -13,7 +13,7 @@ public class Tostado extends Comestible {
     protected Double doCosto() {
         // TODO Auto-generated method stub
         return switch (this.tipoTostado.name()) {
-            case "Salame_y_Queso" -> 100.0;
+            case "Salame_y_Queso" -> 150.0;
             default -> 100.0; // aleman le gustan todas al igual que cualquier otro
         };
     }

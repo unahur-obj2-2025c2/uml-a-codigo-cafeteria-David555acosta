@@ -1,4 +1,4 @@
-package main.java.ar.edu.unahur.obj2.composite.consumibles.Comestible;
+package ar.edu.unahur.obj2.composite.consumibles.Comestible;
 
 public class Medialuna extends Comestible {
 

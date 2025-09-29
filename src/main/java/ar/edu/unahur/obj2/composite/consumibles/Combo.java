@@ -19,6 +19,18 @@ public class Combo implements Consumible {
         this.consumibles = consumibles;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Integer getPrecio() {
+        return precio;
+    }
+
+    public List<Consumible> getConsumibles() {
+        return consumibles;
+    }
+
     public void Agregar(Consumible consumible) {
         consumibles.add(consumible);
     }
@@ -29,7 +41,7 @@ public class Combo implements Consumible {
 
     @Override
     public Double costo() {
-        return Double.min(precio, consumibles.stream().mapToDouble(Consumible::costo).sum());
+        return consumibles.stream().mapToDouble(c -> c.costo()).sum();
     }
 
 }

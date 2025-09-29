@@ -1,9 +1,7 @@
-package main.java.ar.edu.unahur.obj2;
+package ar.edu.unahur.obj2.composite.consumibles;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import main.java.ar.edu.unahur.obj2.composite.consumibles.Consumible;
 
 public class Combo implements Consumible {
     private String nombre;
@@ -31,7 +29,7 @@ public class Combo implements Consumible {
 
     @Override
     public Double costo() {
-        return Double.min(precio, productos.stream().mapToDouble(Consumible::costo).sum());
+        return Double.min(precio, consumibles.stream().mapToDouble(Consumible::costo).sum());
     }
 
 }

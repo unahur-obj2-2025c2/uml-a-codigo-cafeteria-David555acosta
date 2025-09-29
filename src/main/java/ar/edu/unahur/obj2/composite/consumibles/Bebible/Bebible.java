@@ -1,8 +1,6 @@
-package main.java.ar.edu.unahur.obj2.Bebible;
+package ar.edu.unahur.obj2.composite.consumibles.Bebible;
 
-import main.java.ar.edu.unahur.obj2.composite.consumibles.Producto;
-
-public abstract class Bebible extends Producto {
+public abstract class Bebible extends ar.edu.unahur.obj2.composite.consumibles.Producto {
 
     protected Integer capacidadML;
 

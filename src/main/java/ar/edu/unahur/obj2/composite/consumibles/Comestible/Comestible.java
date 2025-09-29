@@ -1,6 +1,6 @@
-package main.java.ar.edu.unahur.obj2.composite.consumibles.Comestible;
+package ar.edu.unahur.obj2.composite.consumibles.Comestible;
 
-import main.java.ar.edu.unahur.obj2.composite.consumibles.Producto;
+import ar.edu.unahur.obj2.composite.consumibles.Producto;
 
 public abstract class Comestible extends Producto {
     protected Integer pesoEnGramos;

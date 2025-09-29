@@ -1,6 +1,4 @@
-package main.java.ar.edu.unahur.obj2.composite.consumibles.Bebible;
-
-import main.java.ar.edu.unahur.obj2.Bebible.Bebible;
+package ar.edu.unahur.obj2.composite.consumibles.Bebible;
 
 public class Cafe extends Bebible {
     private Boolean conLeche;

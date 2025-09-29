@@ -1,31 +1,19 @@
-package ar.edu.unahur.obj2.composite.consumibles;
+package main.java.ar.edu.unahur.obj2.composite.consumibles;
 
 public abstract class Producto implements Consumible {
 
-    protected String nombre;
+    protected String nombe;
     protected Double precioBase;
 
-    public Producto(String nombre, Double precioBase) {
-        this.nombre = nombre;
-        this.precioBase = precioBase;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public Double getPrecioBase() {
-        return precioBase;
-    }
-
-    public void setPrecioBase(Double precioBase) {
+    public Producto(String nombe, Double precioBase) {
+        this.nombe = nombe;
         this.precioBase = precioBase;
     }
 
     @Override
     public Double costo() {
         // TODO Auto-generated method stub
-        return precioBase;
+        return this.precioBase;
     }
 
 }

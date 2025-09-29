@@ -1,57 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation=" http://maven.apache.org/POM/4.0.0
+                              http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ar.edu.unahur.obj2.composite</groupId>
     <artifactId>cafeteria</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Cafeteria Composite</name>
+    <description>Proyecto de ejemplo de patrón composite para cafetería</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>21</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- Versiones centrales para dependencias -->
+        <junit.jupiter.version>5.10.0</junit.jupiter.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <jacoco.plugin.version>0.8.12</jacoco.plugin.version>
+        <versions.plugin.version>2.16.0</versions.plugin.version> <!-- plugin para manejar versiones -->
     </properties>
 
     <dependencies>
-        <!-- JUnit 5 (última versión estable) -->
+        <!-- JUnit 5, para pruebas -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.10.0</version>
+            <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Si tu proyecto usa otras librerías (por ejemplo, collections, logging, etc.), las agregás aquí -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Compilación con Java 21 -->
+            <!-- Plugin de compilación -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <release>${java.version}</release>
                 </configuration>
             </plugin>
 
-            <!-- Ejecución de tests con JUnit 5 -->
+            <!-- Plugin de pruebas (Surefire) para JUnit 5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
+                <version>${maven.surefire.plugin.version}</version>
                 <configuration>
                     <forkCount>1</forkCount>
                     <reuseForks>true</reuseForks>
+                    <argLine>${jacoco.agent.argLine}</argLine>
                 </configuration>
             </plugin>
 
-            <!-- JaCoCo para cobertura -->
+            <!-- Plugin de JaCoCo para generar cobertura -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.12</version>
+                <version>${jacoco.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -68,6 +83,29 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Plugin para manejar versiones (ver si hay versiones más nuevas de dependencias) -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions.plugin.version}</version>
+                <configuration>
+                    <!-- configuraciones opcionales -->
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <!-- Si querés que JaCoCo genere reporte en la fase de site -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.plugin.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
 </project>
+
